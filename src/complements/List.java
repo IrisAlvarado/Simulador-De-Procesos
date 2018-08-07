@@ -28,7 +28,6 @@ public class List {
 	//Metodo para añadir un elemento al final de la lista
 	public void addEnd(Object value) {
 		Node newNode = new Node();
-		
 		newNode.setValue(value);
 		
 		if (isEmpty()) {
@@ -130,5 +129,19 @@ public class List {
     	}
     	start.setValue(null);
     	size = 0;
-    }	
+    }
+    
+    public Object getValue(int position) {
+    	Node auxiliary = start;
+    	if (position == 0) {
+    		return start.getValue();
+    	}
+    	else {
+    		for (int i = 0; i <= (position-1); i++) {
+        		auxiliary = auxiliary.getNext();
+        	}
+        	return auxiliary.getValue();
+    	}
+    	
+    }
 }

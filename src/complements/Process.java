@@ -96,7 +96,7 @@ public class Process {
 	@Override
 	public String toString()
 	{
-		return Arrays.toString(idProcess) + "/" + stateProcess + "/"
+		return idProcess[0] + "" + idProcess[1] + "" + idProcess[2] + "" + idProcess[3] + "/" + stateProcess + "/"
 				+ priority + "/" + numberInstructions + "/" + blockInstruction
 				+ "/" + eventNeeded + ";";
 	}
