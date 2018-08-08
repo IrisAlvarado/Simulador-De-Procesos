@@ -19,36 +19,36 @@ public class ProcesoSimulador{
 		i[1]=1;
 		i[2]=1;
 		i[3]=1;
-		nuevoProceso.addEnd(new Process(i, 3, 3, 3, 3, 3));
+		nuevoProceso.addEnd(new Proceso(i, 3, 3, 3, 3, 3));
 		j[0]=0;
 		j[1]=1;
 		j[2]=0;
 		j[3]=0;
-		newProcess.addEnd(new Process(j, 3, 2, 3, 3, 3));
-		System.out.println(newProcess.getValue(0).toString());
-		System.out.println(newProcess.getValue(1).toString());
-		newProcess.deleteList();
+		nuevoProceso.addEnd(new Proceso(j, 3, 2, 3, 3, 3));
+		System.out.println(nuevoProceso.getValue(0).toString());
+		System.out.println(nuevoProceso.getValue(1).toString());
+		nuevoProceso.borrarLista();
 	}
 	
-	public Process processManager() {
-		Process process = null;
-		/*int idProcess [] = new int[4];
-		int stateProcess;
-		int priority;
-		int numberInstructions;
-		int blockInstruction;
-		int eventNeeded;
+	public Proceso GestorProcesos() {
+		Proceso proceso = null;
+		/*int idProceso [] = new int[4];
+		int estadoProceso;
+		int prioridad;
+		int numInstrucciones;
+		int instructionBloqueada;
+		int eventoNecesario;
 		*/
-		return process;
+		return proceso;
 	}
-	public void newProcessManager() {
+	public void nuevoGestorProcesos() {
 		
 		
 	}
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		new ProcessSimulator();
+		new ProcesoSimulador();
 	}
 	
 
