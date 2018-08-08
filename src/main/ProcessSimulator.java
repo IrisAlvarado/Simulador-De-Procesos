@@ -4,22 +4,22 @@ import complements.List;
 import complements.Process;
 import java.util.Random;
 
-public class ProcessSimulator {
+public class ProcesoSimulador{
 	
-	List newProcess = new List();
-	List ready = new List();
-	List locked = new List();
-	List running = new List();
-	List outgoing = new List();
+	List nuevoProceso = new List();
+	List listo = new List();
+	List bloqueado = new List();
+	List ejecutando = new List();
+	List saliente = new List();
 	
-	public ProcessSimulator() {
+	public ProcesoSimulador() {
 		int i[] = new int[4];
 		int j[] = new int[4];
 		i[0]=1;
 		i[1]=1;
 		i[2]=1;
 		i[3]=1;
-		newProcess.addEnd(new Process(i, 3, 3, 3, 3, 3));
+		nuevoProceso.addEnd(new Process(i, 3, 3, 3, 3, 3));
 		j[0]=0;
 		j[1]=1;
 		j[2]=0;
