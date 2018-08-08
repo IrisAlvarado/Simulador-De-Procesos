@@ -1,75 +1,75 @@
 package complements;
 
-import complements.Node;
+import complements.Nodo;
 
-public class List {
+public class Lista {
 	
 	//Nodo de referencia
-	private Node start;
-	//tama�o de la lista
+	private Nodo inicio;
+	//tamaño de la lista
 	private int size;
 	
 	//constructor para inicializar las variables
-	public List() {
-		start = null;
+	public Lista() {
+		inicio = null;
 		size = 0;
 	}
 	
 	//Metodo para saber si la lista esta vacia
 	public boolean isEmpty() {
-		return start == null;
+		return inicio == null;
 	}
 	
-	//Metodo obtener el tama�o de la lista
+	//Metodo obtener el tamaño de la lista
 	public int getSize() {
 		return size;
 	}
 	
-	//Metodo para a�adir un elemento al final de la lista
+	//Metodo para añadir un elemento al final de la lista
 	public void addEnd(Object value) {
-		Node newNode = new Node();
-		newNode.setValue(value);
+		Nodo nuevoNodo = new Nodo();
+		nuevoNodo.setValue(value);
 		
 		if (isEmpty()) {
-			start = newNode;
+			inicio = nuevoNodo;
 		}
 		else {
-			Node auxiliary = start;
-			while (auxiliary.getNext() != null) {
-				auxiliary = auxiliary.getNext();
+			Nodo auxiliar = inicio;
+			while (auxiliar.getNext() != null) {
+				auxiliar = auxiliar.getNext();
 			}
-			auxiliary.setNext(newNode);
+			auxiliar.setNext(nuevoNodo);
 		}
 		size++;
 	}
 	
-	//Metodo para a�adir un elemento en un lugar determinado de la lista
-	public void addByPosition(int position, Object value) {
-		if(position >= 0 && position <= size) {
-			Node newNode = new Node();
-			newNode.setValue(value);
+	//Metodo para añadir un elemento en un lugar determinado de la lista
+	public void añadirPosicion(int posicion, Object valor) {
+		if(posicion >= 0 && posicion <= size) {
+			Nodo nuevoNodo = new Nodo();
+			nuevoNodo.setValue(valor);
 			
-			if(position == 0) {
-				newNode.setNext(start);
-				start = newNode;
+			if(posicion == 0) {
+				nuevoNodo.setNext(inicio);
+				inicio = nuevoNodo;
 			}
 			else {
-				if(position == size) {
-					Node auxiliary = start;
-					while (auxiliary.getNext() != null) {
-						auxiliary = auxiliary.getNext();
+				if(posicion == size) {
+					Nodo auxiliar = inicio;
+					while (auxiliar.getNext() != null) {
+						auxiliar = auxiliar.getNext();
 					}
-					auxiliary.setNext(newNode);
+					auxiliar.setNext(nuevoNodo);
 				}
 				else {
-					Node auxiliary = start;
+					Nodo auxiliar = inicio;
 					
-					for (int i = 0; i < (position-1); i++) {
-						auxiliary = auxiliary.getNext();
+					for (int i = 0; i < (posicion-1); i++) {
+						auxiliar = auxiliar.getNext();
 					}
-					Node next = auxiliary.getNext();
-					auxiliary.setNext(newNode);
-					newNode.setNext(next);
+					Nodo siguiente = auxiliar.getNext();
+					auxiliar.setNext(nuevoNodo);
+					nuevoNodo.setNext(siguiente);
 				}
 			}
 			size++;
@@ -77,70 +77,70 @@ public class List {
 	}
 	
 	// Metodo para eliminar elementos de una lista
-	public void delete(int position) {
-		if(position >= 0 && position <= size) {
-			Node auxiliary = start;
-			if(position == 0) {
-				auxiliary = start.getNext();
-				start.setValue(null);
-				start.setNext(null);
-				start = auxiliary;
+	public void borrar(int posicion) {
+		if(posicion >= 0 && posicion <= size) {
+			Nodo auxiliar = inicio;
+			if(posicion == 0) {
+				auxiliar = inicio.getNext();
+				inicio.setValue(null);
+				inicio.setNext(null);
+				inicio = auxiliar;
 			}
 			else {
-				Node auxiliary2 = null;
-				for (int i = 0; i <= (position-1); i++) {
-					auxiliary2 = auxiliary;
-					auxiliary = auxiliary.getNext();
+				Nodo auxiliar2 = null;
+				for (int i = 0; i <= (posicion-1); i++) {
+					auxiliar2 = auxiliar;
+					auxiliar = auxiliar.getNext();
 				}
-				auxiliary2.setNext(auxiliary.getNext());
-				auxiliary.setNext(null);
-				auxiliary.setValue(null);
+				auxiliar2.setNext(auxiliar.getNext());
+				auxiliar.setNext(null);
+				auxiliar.setValue(null);
 			}
 			size--;
 		}
 	}
 	
 	//Metodo para modificar elementos en la lista
-    public void modify(int position , Object value){
+    public void modificar(int posicion , Object valor){
     	
-        if(position>=0 && position<size){            
-            if(position == 0){
-                start.setValue(value);
+        if(posicion>=0 && posicion<size){            
+            if(posicion == 0){
+                inicio.setValue(valor);
             }
             else{
-                Node auxiliary = start;
-                for (int i = 0; i < position; i++) {
-                    auxiliary = auxiliary.getNext();
+                Nodo auxiliar = inicio;
+                for (int i = 0; i < posicion; i++) {
+                    auxiliar = auxiliar.getNext();
                 }
                 
-                auxiliary.setValue(value);
+                auxiliar.setValue(valor);
             }
         }
     }
     
     //Metodo para eliminar la lista
-    public void deleteList() {
-    	Node auxiliary;
-    	while (start.getNext() != null) {
-    		auxiliary = start.getNext();
-    		start.setNext(null);
-    		start.setValue(null);
-    		start = auxiliary;
+    public void borrarLista() {
+    	Nodo auxiliar;
+    	while (inicio.getNext() != null) {
+    		auxiliar = inicio.getNext();
+    		inicio.setNext(null);
+    		inicio.setValue(null);
+    		inicio = auxiliar;
     	}
-    	start.setValue(null);
+    	inicio.setValue(null);
     	size = 0;
     }
     
-    public Object getValue(int position) {
-    	Node auxiliary = start;
-    	if (position == 0) {
-    		return start.getValue();
+    public Object obtenerValor(int posicion) {
+    	Nodo auxiliar = inicio;
+    	if (posicion == 0) {
+    		return inicio.obtenerValor();
     	}
     	else {
-    		for (int i = 0; i <= (position-1); i++) {
-        		auxiliary = auxiliary.getNext();
+    		for (int i = 0; i <= (posicion-1); i++) {
+        		auxiliar = auxiliar.getNext();
         	}
-        	return auxiliary.getValue();
+        	return auxiliar.obtenerValor();
     	}
     	
     }
